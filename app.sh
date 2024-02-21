@@ -5,7 +5,7 @@ if [ -d "$file" ]; then
     cd "$end"
     mkdir -p Payload
     cp -r $file Payload/
-    zip -q Payload.zip Payload/*
+    zip -qr Payload.zip Payload/*
     mv Payload.zip app.ipa
     rm -rf Payload
     echo "app.ipa is created successfully. You can check it out in $end ."
