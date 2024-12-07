@@ -28,6 +28,8 @@ The tool helps you build no-code-sign ipa without typing script.
 
 ## How to use it
 
+### With Cli
+
 1. Open mac terminal app
 2. Enter command below and make sure `{your app.command path}` is path of app.command:
    ```shell=
@@ -38,3 +40,7 @@ The tool helps you build no-code-sign ipa without typing script.
 5. Enter output directory (iCloud is best choice)
 6. The program will build your project and convert it to ipa
 7. Open the file on your iphone and share with altstore
+
+### With GUI
+1. Download the app
+2. Run the app
