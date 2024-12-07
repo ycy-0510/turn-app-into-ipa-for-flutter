@@ -42,5 +42,13 @@ The tool helps you build no-code-sign ipa without typing script.
 7. Open the file on your iphone and share with altstore
 
 ### With GUI
-1. Download the [app](https://github.com/ycy-0510/turn_app_into_ipa_for_flutter/raw/refs/heads/main/gui_app/FlutterToIPAConverter.zip)
-2. Run the app
+1. Clone the Repo
+```bash
+git clone https://github.com/ycy-0510/turn_app_into_ipa_for_flutter.git
+```
+2. Run the app with python
+```bash
+source .venv/bin/activate
+pip3 install PyQt5
+python3 app.py
+```
