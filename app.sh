@@ -1,5 +1,5 @@
-echo "This tool helps you convert a Flutter project into an IPA file."
-echo "You will be prompted to enter the root directory of your Flutter project and the output directory for the IPA file."
+echo "\033[1;34mThis tool helps you convert a Flutter project into an IPA file.\033[0m"
+echo "\033[1;34mYou will be prompted to enter the root directory of your Flutter project and the output directory for the IPA file.\033[0m"
 
 read -p "Enter flutter project root directory: " root
 read -p "Enter output directory: " end
