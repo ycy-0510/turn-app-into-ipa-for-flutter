@@ -47,6 +47,8 @@ The tool helps you build no-code-sign ipa without typing script.
 
 ### With GUI
 
+[Watch the video tutorial](https://cloud-jk9gvly3z-hack-club-bot.vercel.app/0screen_shot_2024-12-10_at_9.09.10___pm.mp4)
+
 1. Clone the Repo
 
 ```bash
