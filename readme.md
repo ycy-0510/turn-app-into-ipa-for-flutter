@@ -1,5 +1,5 @@
 # Build Flutter IPA for Altstore
-![Screenshot](https://cloud-1zkeqlrh7-hack-club-bot.vercel.app/0screen_shot_2024-12-07_at_11.21.20___pm.png)
+![Screenshot](https://cloud-epfqvfvco-hack-club-bot.vercel.app/0screen_shot_2024-12-10_at_9.06.40___pm.png)
 
 ## Why you need to use it
 
