@@ -1,0 +1,3 @@
+PyQt5
+py2app
+SetupTools==70.3.0

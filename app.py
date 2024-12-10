@@ -1,5 +1,5 @@
 import os
-import subprocess
+import subprocess as sp
 from PyQt5.QtWidgets import (
     QApplication,
     QWidget,
@@ -9,6 +9,7 @@ from PyQt5.QtWidgets import (
     QMessageBox,
     QLabel,
 )
+import sys
 
 
 class App(QWidget):
@@ -100,7 +101,7 @@ class App(QWidget):
 
         os.chdir(self.root_dir)
         self.convert_label.setText("Building IPA...")
-        result = subprocess.run(
+        result = sp.run(
             ["flutter", "build", "ipa", "--no-codesign"], capture_output=True, text=True
         )
 
@@ -118,10 +119,10 @@ class App(QWidget):
         if os.path.isdir(app_path):
             os.chdir(self.output_dir)
             os.makedirs("Payload", exist_ok=True)
-            subprocess.run(["cp", "-r", app_path, "Payload/"])
-            subprocess.run(["zip", "-qr", "Payload.zip", "Payload"], check=True)
+            sp.run(["cp", "-r", app_path, "Payload/"])
+            sp.run(["zip", "-qr", "Payload.zip", "Payload"], check=True)
             os.rename("Payload.zip", "app.ipa")
-            subprocess.run(["rm", "-rf", "Payload"])
+            sp.run(["rm", "-rf", "Payload"])
             QMessageBox.information(
                 self,
                 "Success",
@@ -137,6 +138,6 @@ class App(QWidget):
 
 
 if __name__ == "__main__":
-    app = QApplication([])
+    app = QApplication(sys.argv)
     ex = App()
     app.exec_()
