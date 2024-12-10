@@ -32,7 +32,9 @@ The tool helps you build no-code-sign ipa without typing script.
 ## How to use it
 
 ### With CLI
-![Video Tutorial](https://cloud-3amv5qe3f-hack-club-bot.vercel.app/0screen_shot_2024-12-07_at_6.14.46___pm.mp4)
+<video width="320" height="240" controls>
+  <source src="https://cloud-3amv5qe3f-hack-club-bot.vercel.app/0screen_shot_2024-12-07_at_6.14.46___pm.mp4" type="video/mp4">
+</video>
 
 1. Open mac terminal app
 2. Enter command below and make sure `{your app.command path}` is path of app.command:
