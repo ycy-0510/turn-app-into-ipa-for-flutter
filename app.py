@@ -8,6 +8,7 @@ from PyQt5.QtWidgets import (
     QFileDialog,
     QMessageBox,
     QLabel,
+    QCheckBox,
 )
 import sys
 
@@ -54,18 +55,23 @@ class App(QWidget):
         self.convert_button.clicked.connect(self.convert_to_ipa)
         layout.addWidget(self.convert_button)
 
+        self.clean_checkbox = QCheckBox("Clean Flutter Project before building", self)
+        layout.addWidget(self.clean_checkbox)
+
         self.convert_label = QLabel("", self)
         layout.addWidget(self.convert_label)
 
-        self.license_label = QLabel("Copyright 2024 YCY\nLicensed under the Apache License, Version 2.0 ",self)
+        self.license_label = QLabel(
+            "Copyright 2024 YCY\nLicensed under the Apache License, Version 2.0 ", self
+        )
         layout.addWidget(self.license_label)
-        
+
         self.setLayout(layout)
         self.show()
 
     def select_root_dir(self):
         self.root_dir = QFileDialog.getExistingDirectory(
-            self, "Select Flutter Project Root Directory"
+            self, "Select Flutter Project Root Directory", os.path.expanduser("~")
         )
         if self.root_dir:
             self.root_label.setText(f"Selected: {self.root_dir}")
@@ -77,7 +83,7 @@ class App(QWidget):
 
     def select_output_dir(self):
         self.output_dir = QFileDialog.getExistingDirectory(
-            self, "Select Output Directory"
+            self, "Select Output Directory", os.path.expanduser("~")
         )
         if self.output_dir:
             self.output_label.setText(f"Selected: {self.output_dir}")
@@ -100,6 +106,20 @@ class App(QWidget):
             return
 
         os.chdir(self.root_dir)
+        self.convert_label.setText("Checking Flutter environment...")
+        if not os.path.isfile("pubspec.yaml"):
+            self.convert_label.setText(
+                "Error: pubspec.yaml does not exist in the specified directory."
+            )
+            QMessageBox.critical(
+                self, "Error", "pubspec.yaml does not exist in the specified directory."
+            )
+            return
+        self.convert_label.setText("flutter pub get...")
+        result = sp.run(["flutter", "pub", "get"], capture_output=True, text=True)
+        if self.clean_checkbox.isChecked():
+            self.convert_label.setText("Cleaning Flutter project...")
+            sp.run(["flutter", "clean"], check=True)
         self.convert_label.setText("Building IPA...")
         result = sp.run(
             ["flutter", "build", "ipa", "--no-codesign"], capture_output=True, text=True

@@ -4,6 +4,11 @@ echo "\033[1;34mYou will be prompted to enter the root directory of your Flutter
 read -p "Enter flutter project root directory: " root
 read -p "Enter output directory: " end
 cd "$root"
+if [ ! -f "pubspec.yaml" ]; then
+    echo "pubspec.yaml does not exist in the specified directory."
+    exit 1
+fi
+flutter pub get
 flutter build ipa --no-codesign
 file="$root/build/ios/archive/Runner.xcarchive/Products/Applications/Runner.app"
 if [ -d "$file" ]; then
