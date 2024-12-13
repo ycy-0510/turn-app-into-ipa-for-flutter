@@ -56,9 +56,9 @@ git clone https://github.com/ycy-0510/turn_app_into_ipa_for_flutter.git
 ```
 
 2. Enter command below and make sure `{your gui-app.command path}` is path of app.command:
-   ```shell=
-   chmod +x {your gui-app.command path}
-   ```
+```shell=
+chmod +x {your gui-app.command path}
+```
 3. Double-click `gui-app.command`
 
 ---
